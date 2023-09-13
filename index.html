@@ -1,8 +1,60 @@
 <!DOCTYPE html>
 
 <html>
-<body>
-<p>Testing EEEEE</p>
-</body>
+    <style>
+        /*h1 {
+          text-align: center;
+        }
+        */
 
+        body {
+            text-align: center;
+        }
+        .loginContain {
+            height: 200px;
+            position: relative;
+            border: 3px solid green;
+            border-radius: 0px;
+        }
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+    <script>
+        function login() {
+            window.location.replace("./login-page.html");
+        }
+
+        function signup() {
+            window.location.replace("./signup-page.html")
+        }
+    </script>
+
+
+    <head>
+        <meta charset="utf-8">
+        <title>Roro's Place</title>
+        <link rel="icon" type="images/x-icon" href="./P.ico">
+    </head>
+
+
+
+    <body>
+        <div class="loginContain">
+            <div class="center">
+                <h1>Login with Button Below</h1>
+                <button id="login" onclick="login()">Login</button>
+            </div>
+        </div>
+        
+    </body>
+
+
+    
 </html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Roro's Place - Login</title>
+    <link rel="icon" type="images/x-icon" href="./P.ico">
+</head>
+<script>
+//
+let currentMode = "light";
+function darkmode() {
+    if(currentMode == "light") {
+        document.body.style.backgroundColor = "black";
+        document.getElementById("userLabel").style.color = "white";
+        document.getElementById("passLabel").style.color = "white";
+        //document.getElementById("darkMode").style.backgroundColor = "white";
+        //document.getElementById("darkMode").style.color = "black";
+        //document.getElementById("darkMode").innerHTML = "Light";
+        currentMode = "dark";
+    } else {
+        document.body.style.backgroundColor = "white";
+        document.getElementById("userLabel").style.color = "black";
+        document.getElementById("passLabel").style.color = "black";
+        //document.getElementById("darkMode").style.backgroundColor = "black";
+        //document.getElementById("darkMode").style.color = "white";
+        //document.getElementById("darkMode").innerHTML = "Dark";
+        currentMode = "light";
+    
+    }
+}
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    // Your code to record the enter key press goes here
+    document.getElementById("submit").click();
+  }
+});
+
+function clearBoxes() {
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+}
+
+function submitPass() {
+    //stored usernames
+    var username1 = "Hz9loj==";
+    var username2 = "H2g5rJEcoD==";
+    var username3 = "IT9erJ8=";
+    var username4 = "JzI2";
+    var username5 = "rSEcpJIl"
+    //stored passwords
+    var password1 = "Hz9lo0ymF2I3oN==";
+    var password2 = "ET9aZGVmVD==";
+    var password3 = "FzSjLJ4kVD==";
+    var password4 = "qmEmK2tmpwZ=";
+    var password5 = "H3IvIT94ITykMKW6ZFR="
+    //loading gif
+    
+    document.getElementById("submit").style.visibility = "hidden";
+    document.getElementById("submitload").style.visibility = "visible";
+    setTimeout(function(){
+        document.getElementById("submit").style.visibility = "visible";
+        document.getElementById("submitload").style.visibility = "hidden";
+    }, 2000);
+    
+    
+
+
+    //try inspecting it again lol
+    setTimeout(function(){
+    
+
+        let user = document.getElementById("username").value;
+        let pass = document.getElementById("password").value;
+        clearBoxes();
+        if (user == atob(rot13(username1))) {
+            if(pass == atob(rot13(password1))) {
+                alert("Password Correct!");
+                document.getElementById("redirect").style.visibility = "visible";
+
+            } else {
+                alert("Password Incorrect!")
+            }
+
+        } else if(user == atob(rot13(username2))) {
+            if(pass == atob(rot13(password2))) {
+                alert("Password Correct!");
+                document.getElementById("redirect").style.visibility = "visible";
+            } else {
+                alert("Password Incorrect!")
+            }
+        } else if(user == atob(rot13(username3))) {
+            if(pass == atob(rot13(password3))) {
+                alert("Password Correct!");
+                document.getElementById("redirect").style.visibility = "visible";
+            } else {
+                alert("Password Incorrect!");
+            }
+        } else if(user == atob(rot13(username4))) {
+            if(pass == atob(rot13(password4))) {
+                alert("Password Correct!");
+                document.getElementById("redirect").style.visibility = "visible";
+            } else {
+                alert("Password Incorrect!");
+            }
+        } else if(user == atob(rot13(username5))) {
+            if(pass == atob(rot13(password5))) {
+                alert("Password Correct!");
+                document.getElementById("redirect").style.visibility = "visible";
+            } else {
+                alert("Password Incorrect!");
+            }
+        } else {
+            alert("Password Incorrect!");
+        }
+    }, 3000);
+}
+
+function rot13(str) {
+  var result = "";
+  
+  for (var i = 0; i < str.length; i++) {
+    var charCode = str.charCodeAt(i);
+    
+    if (charCode >= 65 && charCode <= 90) { // Uppercase letters
+      result += String.fromCharCode((charCode - 65 + 13) % 26 + 65);
+    } else if (charCode >= 97 && charCode <= 122) { // Lowercase letters
+      result += String.fromCharCode((charCode - 97 + 13) % 26 + 97);
+    } else {
+      result += str.charAt(i); // Non-alphabetic characters
+    }
+  }
+  
+  return result;
+}
+function heheheha() {
+    window.location.replace("./wueihkjahhb9y87guiw3oih89b7guibdkzhu97y8ogubkglniqobg89g3vyiboh0g889uwoboahu0s7g9weyvibboiwgubhib.html");
+    alert(btoa("./wueihkjahhb9y87guiw3oih89b7guibdkzhu97y8ogubkglniqobg89g3vyiboh0g889uwoboahu0s7g9weyvibboiwgubhib.html"))
+}
+
+</script>
+
+
+
+<style>
+    #userLabel {
+        color: black;
+        font-size: 20px;
+        font-family: 'Roboto';
+    }
+    #passLabel {
+        color: black;
+        font-size: 20px;
+        font-family: 'Roboto';
+    }
+    #username {
+        padding: 12px 20px;
+        width: 50%;
+        color: white;
+        background-color: #3CBC8D;
+        border: 3px #3CBC8D;
+        border-radius: 50px;
+    }
+    #password {
+        padding: 12px 20px;
+        width: 50%;
+        color: white;
+        background-color: #3CBC8D;
+        border: 3px #3CBC8D;
+        border-radius: 50px;
+    }
+
+
+    .fullLogin {
+        height: 230px;
+        width: 400px;
+        position: relative;
+        border: 3px solid green;
+        border-radius: 5px;
+        margin-top: 190px;
+    }
+    body {
+        //text-align: center;
+        //background-color: #000000;
+    }
+    #darkMode {
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        top: 0px;
+        left: 0px;
+        border-radius: 50px;
+        background-color: white;
+        //color: white;
+    }
+    .submitBut {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    #submit {
+        font-size: 25px;
+        transition-duration: 1s;
+        border: none;
+        length: 120%;
+        width: 50%;
+        position: absolute;
+        top: 135px;
+        left: 100px;
+        visibility: visible;
+    }
+    #submitload {
+        font-size: 25px;
+        transition-duration: 1s;
+        border: none;
+        length: 120%;
+        width: 50%;
+        position: absolute;
+        top: 135px;
+        left: 100px;
+        visibility: hidden;
+    }
+    #submit:hover {
+        color: #C264FF;
+        background-color: #63E5FF;
+        border-radius: 70px;
+        border: 3px;
+        border-color: black;
+        transition-duration: 0.6x;
+    }
+    
+    #redirect {
+        margin-top: 30px;
+        visibility: hidden;
+    }
+    
+
+
+</style>
+
+
+<body>
+
+<center>
+<div class="fullLogin">
+    <div class="userName">
+        <center> <label id="userLabel" for="username">Username</label> </center>
+        <center> <input type="text" id="username"> </center>
+    </div>
+    <div class="passWord">
+        <center> <label id="passLabel" for="password">Password</label> </center>
+        <center> <input type="password" id="password" </input> </center>
+    </div>
+    <div class="submitBut">
+    <center> <button id="submit" onclick="submitPass()">Login</button> </center>
+    <center> <button id="submitload" onclick=""><img src="./loading_gif_cropped.gif" alt="loading..." width="55px"></button> </center>
+    </div>
+</div>
+</center>
+
+<button id="darkMode" onClick="darkmode()"><img src="./moon.png" alt="moon" width="40px"></button>
+
+<center> <button id="redirect" onclick="heheheha()">SECRET >:D</button> </center>
+
+
+</body>
+</html>
