@@ -16,7 +16,11 @@ h1 {
 
 
 <script>
-
+function checkCookie() {
+    if(document.cookie !== "signIn") {
+        window.location.replace("./login-page.html");
+    }
+}
 
 </script>
 
@@ -29,6 +33,7 @@ h1 {
 
 
 <body>
+    <body onload="checkCookie">
     <div class="popcat">
         <center><h2>PET THE CAT FIRST BEFORE ADVENTURING ON!</h2></center>
         <center><img id="popcat" src="./popcat.jpg" width=700 alt="PopCat"></center>
