@@ -146,8 +146,20 @@ function rot13(str) {
   return result;
 }
 function heheheha() {
-    window.location.replace("./projects.html");
-    //alert(btoa("./wueihkjahhb9y87guiw3oih89b7guibdkzhu97y8ogubkglniqobg89g3vyiboh0g889uwoboahu0s7g9weyvibboiwgubhib.html"))
+    var randomString = "";
+    randomString += Math.random(); 
+    randomString += Math.random(); 
+    randomString += Math.random(); 
+    if(typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("key", randomString)
+        alert(seassionStorage.getItem(key);
+        window.location.replace("./projects.html");
+    } else {
+        alert("Failed to generate a session ID. Error Code 1")
+    }
+    /*
+    Error Code 1 = Browser does not support session storage
+    */
 }
 
 </script>
