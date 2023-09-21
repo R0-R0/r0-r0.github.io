@@ -19,7 +19,7 @@ h1 {
 function checkCookie() {
     let cookie = document.cookie;
     alert(cookie);
-    if(cookie !== "signIn") {
+    if(document.cookie !== "signIn") {
         window.location.replace("./login-page.html");
     }
 }
