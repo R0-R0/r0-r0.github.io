@@ -19,15 +19,11 @@ h1 {
 function checkCookie() {
     let cookie = sessionStorage.getItem("cookie");
     alert(cookie);
-    if(cookie.includes("ballsack") === true) {
+    if(cookie.includes("ballsack")) {
         alert("Welcome!");
-    } else if(cookie.includes("ballsack") === false) {
-        alert("Login first!");
-        window.location.replace(./login-page.html);
     } else {
-        alert("Error Verifiying...");
-        alert("Redirecting you...");
-        window.location.replace(./login-page.html);
+        alert("Login first!");
+        window.location.replace("./login-page.html");
     }
 }
 
