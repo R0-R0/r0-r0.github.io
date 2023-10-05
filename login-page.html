@@ -147,9 +147,14 @@ function rot13(str) {
   return result;
 }
 function heheheha() {
-    let firstEncryption = Math.floor((Math.random() * 100) + 1);
-    let secondEncryption = firstEncrytion + "ballsack";
-    sessionStorage.setItem("cookie", secondEncryption);
+    let first = "1";
+    for (let i = 0; i < 5; i++) {
+        first = first + String(Math.floor((Math.random() * 100) + 1));
+    }
+    first = first + "ballsack";
+    for (let i = 0; i < 5; i++) {
+        first = first + String(Math.floor((Math.random() * 100) + 1));
+    }
     window.location.replace("./projects.html");
     
 }
