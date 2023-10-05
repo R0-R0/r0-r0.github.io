@@ -19,7 +19,7 @@ h1 {
 function checkCookie() {
     let cookie = sessionStorage.getItem("cookie");
     alert(cookie);
-    if(cookie.includes("ballsack")) {
+    if(cookie.includes("ballsack") === true) {
         alert("Welcome!");
     } else {
         alert("Login first!");
