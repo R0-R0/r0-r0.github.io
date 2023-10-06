@@ -21,9 +21,11 @@ function checkCookie() {
     alert(cookie);
     if(cookie.includes("ballsack") === true) {
         alert("Welcome!");
-    } else {
+    } else if(cookie.includes("ballsack") === false) {
         alert("Login first!");
         window.location.replace("./login-page.html");
+    } else {
+        alert("Error Verifying Cookie!");
     }
 }
 
