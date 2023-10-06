@@ -18,7 +18,7 @@ h1 {
 <script>
 function checkCookie() {
     let cookie = sessionStorage.getItem("cookie");
-    alert(cookie);
+    //alert(cookie);
     if (cookie && cookie.includes("ballsack")) {
         alert("Welcome!");
     } else if (!cookie) {
@@ -26,6 +26,7 @@ function checkCookie() {
         window.location.replace("./login-page.html");
     } else {
         alert("Error Verifying Cookie!");
+        window.location.replace('./login-page.html");
     }
 }
 
