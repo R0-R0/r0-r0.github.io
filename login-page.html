@@ -9,14 +9,8 @@
 <script>
 //
 
-if(localStorage.getItem("theme") == "light") {
-    let currentMode = "light";
-} else if(localStorage.getItem("theme") == "dark") {
-    let currentMode = "dark";
-} else {
-    alert("Error Loading Theme... Defaulting to Light");
-    let currentMode = "light";
-}
+let currentMode = "dark";
+    
 function darkmode() {
     if(currentMode == "light") {
         document.body.style.backgroundColor = "black";
