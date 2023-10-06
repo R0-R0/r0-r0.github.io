@@ -19,9 +19,9 @@ h1 {
 function checkCookie() {
     let cookie = sessionStorage.getItem("cookie");
     alert(cookie);
-    if(cookie.includes("ballsack") === true) {
+    if (cookie && cookie.includes("ballsack")) {
         alert("Welcome!");
-    } else if(cookie == null) {
+    } else if (!cookie) {
         alert("Login first!");
         window.location.replace("./login-page.html");
     } else {
