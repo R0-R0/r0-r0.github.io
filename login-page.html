@@ -8,7 +8,15 @@
 </head>
 <script>
 //
-let currentMode = "light";
+
+if(localStorage.getItem("theme") == "light") {
+    let currentMode = "light";
+} else if(localStorage.getItem("theme") == "dark") {
+    let currentMode = "dark";
+} else {
+    alert("Error Loading Theme... Defaulting to Light");
+    let currentMode = "light";
+}
 function darkmode() {
     if(currentMode == "light") {
         document.body.style.backgroundColor = "black";
@@ -18,6 +26,7 @@ function darkmode() {
         //document.getElementById("darkMode").style.color = "black";
         //document.getElementById("darkMode").innerHTML = "Light";
         currentMode = "dark";
+        localStorage.setItem("theme", currentMode);
     } else {
         document.body.style.backgroundColor = "white";
         document.getElementById("userLabel").style.color = "black";
@@ -26,7 +35,7 @@ function darkmode() {
         //document.getElementById("darkMode").style.color = "white";
         //document.getElementById("darkMode").innerHTML = "Dark";
         currentMode = "light";
-    
+        localStorage.setItem("theme", currentMode);
     }
 }
 document.addEventListener("keydown", function(event) {
