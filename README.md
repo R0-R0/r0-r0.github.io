@@ -1,5 +1,13 @@
 <DOCTYPE html>
 
 <html>
-  <h1>AAAAAAAA</h1>
+  <h1>Read Me</h1>
+  
+  <p>This is just a fun little testing page for when I'm bored :)</p>
+
+  <style>
+    p {
+      color: red;
+    }
+  </style>
 </html>
