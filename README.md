@@ -1,2 +1,5 @@
+<DOCTYPE html>
 
-My little testing web page for Javascript, CSS, and HTML :D
+<html>
+  <h1>AAAAAAAA</h1>
+</html>
