@@ -52,6 +52,7 @@ function submitPass() {
     var username4 = "JzI2";
     var username5 = "rSEcpJIl";
     var username6 = "Gx9HK1EVEI9GGR9HFN==";
+    var username7 = "FzyaqD==";
     //stored passwords
     var password1 = "Hz9lo0ymF2I3oN==";
     var password2 = "ET9aZGVmVD==";
@@ -59,6 +60,7 @@ function submitPass() {
     var password4 = "qmEmK2tmpwZ=";
     var password5 = "H3IvIT94ITykMKW6ZFR=";
     var password6 = "GzS0MKEbMKAfo3EbZmx=";
+    var password7 = "LJ1yqTu5p3Dm";
     /*
     And yes, I know this isn't real encoding, I'm just too lazy to make my own algorithm :/
     */
@@ -121,6 +123,13 @@ function submitPass() {
             }
         } else if(user == atob(rot13(username6))) {
             if(pass == atob(rot13(password6))) {
+                alert("Password Correct!");
+                document.getElementById("redirect").style.visibility = "visible";
+            } else {
+                alert("Password Incorrect!");
+            }
+        } else if(user == atob(rot13(username7))) {
+            if(pass == atob(rot13(password7))) {
                 alert("Password Correct!");
                 document.getElementById("redirect").style.visibility = "visible";
             } else {
