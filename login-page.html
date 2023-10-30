@@ -5,6 +5,7 @@
     <title>Roro's Place - Login</title>
     <link rel="icon" type="images/x-icon" href="./images/P.ico">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <meta charset="UTF-8">
 </head>
 <script>
 //
@@ -16,20 +17,12 @@ function darkmode() {
         document.body.style.backgroundColor = "black";
         document.getElementById("userLabel").style.color = "white";
         document.getElementById("passLabel").style.color = "white";
-        //document.getElementById("darkMode").style.backgroundColor = "white";
-        //document.getElementById("darkMode").style.color = "black";
-        //document.getElementById("darkMode").innerHTML = "Light";
         currentMode = "dark";
-        localStorage.setItem("theme", currentMode);
     } else {
         document.body.style.backgroundColor = "white";
         document.getElementById("userLabel").style.color = "black";
         document.getElementById("passLabel").style.color = "black";
-        //document.getElementById("darkMode").style.backgroundColor = "black";
-        //document.getElementById("darkMode").style.color = "white";
-        //document.getElementById("darkMode").innerHTML = "Dark";
         currentMode = "light";
-        localStorage.setItem("theme", currentMode);
     }
 }
 document.addEventListener("keydown", function(event) {
@@ -86,59 +79,67 @@ function submitPass() {
         clearBoxes();
         if (user == atob(rot13(username1))) {
             if(pass == atob(rot13(password1))) {
-                alert("Password Correct!");
-                document.getElementById("redirect").style.visibility = "visible";
+                passCorrect();
 
             } else {
-                alert("Password Incorrect!")
+                passIncorrect();
             }
 
         } else if(user == atob(rot13(username2))) {
             if(pass == atob(rot13(password2))) {
-                alert("Password Correct!");
-                document.getElementById("redirect").style.visibility = "visible";
+                passCorrect();
             } else {
-                alert("Password Incorrect!")
+                passIncorrect();
             }
         } else if(user == atob(rot13(username3))) {
             if(pass == atob(rot13(password3))) {
-                alert("Password Correct!");
-                document.getElementById("redirect").style.visibility = "visible";
+                passCorrect();
             } else {
-                alert("Password Incorrect!");
+                passIncorrect();
             }
         } else if(user == atob(rot13(username4))) {
             if(pass == atob(rot13(password4))) {
-                alert("Password Correct!");
-                document.getElementById("redirect").style.visibility = "visible";
+                passCorrect();
             } else {
-                alert("Password Incorrect!");
+                passIncorrect();
             }
         } else if(user == atob(rot13(username5))) {
             if(pass == atob(rot13(password5))) {
-                alert("Password Correct!");
-                document.getElementById("redirect").style.visibility = "visible";
+                passCorrect();
             } else {
-                alert("Password Incorrect!");
+                passIncorrect();
             }
         } else if(user == atob(rot13(username6))) {
             if(pass == atob(rot13(password6))) {
-                alert("Password Correct!");
-                document.getElementById("redirect").style.visibility = "visible";
+                passCorrect();
             } else {
-                alert("Password Incorrect!");
+                passIncorrect();
             }
         } else if(user == atob(rot13(username7))) {
             if(pass == atob(rot13(password7))) {
-                alert("Password Correct!");
-                document.getElementById("redirect").style.visibility = "visible";
+                passCorrect();
             } else {
-                alert("Password Incorrect!");
+                passIncorrect();
             }
         } else {
-            alert("Password Incorrect!");
+            passIncorrect();
         }
     }, 3000);
+}
+
+function passIncorrect() {
+  document.getElementById("STATUS").innerHTML = "Password Incorrect!";
+  document.getElementById("STATUS").style.color = "red";
+  document.getElementById("loginStatus").style.animation = "loginStatus 3s linear";
+  setTimeout(() => {  document.getElementById("loginStatus").style.animation = null; }, 4000);
+}
+
+function passCorrect() {
+  document.getElementById("STATUS").innerHTML = "Password Correct!";
+  document.getElementById("STATUS").style.color = "green";
+  document.getElementById("loginStatus").style.animation = "loginStatus 3s linear";
+  setTimeout(() => {  document.getElementById("loginStatus").style.animation = null; }, 4000);
+  document.getElementById("redirect").style.visibility = "visible";
 }
 
 function rot13(str) {
@@ -179,9 +180,7 @@ function heheheha() {
 
 <style>
     body {
-        transition: background-color: 5s;
-        text-align: center;
-        font-family: Sans-Serif;
+        
     }
     #userLabel {
         color: black;
@@ -265,11 +264,50 @@ function heheheha() {
     }
     
     #redirect {
-        margin-top: 30px;
+        margin-top: 100px;
         visibility: hidden;
     }
     .center {
         text-align: center;
+    }
+
+    #loginStatus {
+      position: absolute;
+      top: 0px;
+      right: 00px;
+      text-align: center;
+      border: 5px solid green;
+      background-color: white;
+      width: 270px;
+      height: 130px;
+      border-radius: 20px;
+      margin-top: 5px;
+      margin-right: 5px;
+      opacity: 0;
+    }
+
+    @keyframes loginStatus {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+
+      25% {
+        transform: translateY(0%);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translateY(0%);
+        opacity: 1;
+      }
+      
+      100% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+
+
     }
     
 
@@ -292,12 +330,21 @@ function heheheha() {
             <center><button id="submit" onclick="submitPass()">Login</button></center>
             <center><button id="submitload" onclick=""><img src="./images/loading_gif_cropped.gif" alt="loading..." width="55px"></button></center>
         </div>
+    </div>
 
 
 <button id="redirect" onclick="heheheha()">SECRET >:D</button>
-
-
 </center>
+
+
 <button id="darkMode" onClick="darkmode()"><img src="./images/moon.png" alt="moon" width="40px"></button>
+
+<div id="loginStatus">
+  <h3>⚠️Status⚠️</h3>
+  <p id="STATUS">Password Incorrect/Correct</p>
+</div>
+
+
+
 </body>
 </html>
