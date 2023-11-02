@@ -74,8 +74,8 @@ function submitPass() {
     setTimeout(function(){
     
 
-        let user = document.getElementById("username").value;
-        let pass = document.getElementById("password").value;
+        var user = document.getElementById("username").value;
+        var pass = document.getElementById("password").value;
         clearBoxes();
         if (user == atob(rot13(username1))) {
             if(pass == atob(rot13(password1))) {
@@ -169,6 +169,8 @@ function heheheha() {
         first = first + String(Math.floor((Math.random() * 100) + 1));
     }
     sessionStorage.setItem("cookie", first);
+    sessionStorage.setItem("user", user);
+    alert(sessionStorage.getItem("user");
     //alert(sessionStorage.getItem("cookie"));
     window.location.assign("./projects.html");
     
