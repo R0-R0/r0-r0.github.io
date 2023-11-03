@@ -18,9 +18,8 @@ h1 {
 <script>
 function checkCookie() {
     let cookie = sessionStorage.getItem("cookie");
-    alert("Checking Cookie...");
     if (cookie && cookie.includes("ballsack")) {
-        alert("Welcome!");
+        
     } else if (!cookie) {
         alert("Login first!");
         window.location.replace("./login-page.html");
