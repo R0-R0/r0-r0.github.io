@@ -5,24 +5,233 @@
   <head>
     <title>Area Calculator</title>
     <link rel="icon" type="images/x-icon" href="../images/P.ico">
-
     <h1>Area Calculator!</h1>
   </head>
 
   <script>
+  function checkCookie() {
+    let cookie = sessionStorage.getItem("cookie");
+    if (cookie && cookie.includes("ballsack")) {
+        alert("Welcome!");
+    } else if (!cookie) {
+        alert("Login first!");
+        window.location.replace("./login-page.html");
+    } else {
+        alert("Error Verifying Cookie!");
+        window.location.replace("./login-page.html");
+    }
+  }
 
+
+  function switchBoxes() {
+    let areaCalculateType = document.getElementById("areaDropdown").value;
+
+    let box1 = document.getElementById("number1");
+    let box2 = document.getElementById("number2");
+    let box3 = document.getElementById("number3");
+
+    if (areaCalculateType == "Circle") {
+      box1.style.display = "block";
+      box2.style.display = "none";
+      box3.style.display = "none";
+      box1.placeholder = "Radius";
+    } else if(areaCalculateType == "Triangle") {
+      box1.style.display = "block";
+      box2.style.display = "block";
+      box3.style.display = "none";
+      box1.placeholder = "Height";
+      box2.placeholder = "Length";
+    } else if(areaCalculateType == "Trapizoid") {
+      box1.style.display = "block";
+      box2.style.display = "block";
+      box3.style.display = "block";
+      box1.placeholder = "Base 1";
+      box2.placeholder = "Base 2";
+      box3.placeholder = "Height";
+    } else if(areaCalculateType == "Square") {
+      box1.style.display = "block";
+      box2.style.display = "none";
+      box3.style.display = "none";
+      box1.placeholder = "Side";
+      box2.placeholder = "";
+      box3.placeholder = "";
+    } else if(areaCalculateType == "Rectangle") {
+      box1.style.display = "block";
+      box2.style.display = "block";
+      box3.style.display = "none";
+      box1.placeholder = "Length";
+      box2.placeholder = "Height";
+      box3.placeholder = "";
+    } else {
+      alert("Error, try again later...");
+    }
+  }
+
+  function calculateAnswer() {
+
+    let areaToCalculate = document.getElementById("areaDropdown").value;
+
+    let value1 = document.getElementById("number1").value;
+    let value2 = document.getElementById("number2").value;
+    let value3 = document.getElementById("number3").value;
+
+    let round = document.getElementById("round").checked;
+
+
+
+    if (areaToCalculate == "Circle") {
+      var answer = value1*value1*3.14;
+    } else if(areaToCalculate == "Triangle") {
+      var answer = (value1*value2)/2;
+    } else if(areaToCalculate == "Trapizoid") {
+      alert()
+      var answer = value1+value2;
+      answer = answer/2;
+      answer = answer*value3;
+    } else if(areaToCalculate == "Square") {
+      var answer = value1*value1;
+    } else if(areaToCalculate == "Rectangle") {
+      var answer = value1*value2;
+    } else {
+      alert("Error, try again later...");
+    }
+
+    if (round == true) {
+      revealResult(Math.round(answer));
+    } else {
+      revealResult(answer);
+    }
+  }
+
+  function getEquation(shape) {
+    if (shape == "Circle") {
+      return "r*r*3.14";
+    } else if(shape == "Triangle") {
+      return "(l*h)/2";
+    } else if(shape == "Trapizoid") {
+      return "((b1+b2)/2)*h";
+    } else if(shape == "Square") {
+      return "s*s";
+    } else if(shape == "Rectangle") {
+      return "b*l";
+    } else {
+      alert("Error, try again later...");
+    }
+  }
+
+
+  function revealResult(value) {
+    let areaCalculate = document.getElementById("areaDropdown").value;
+    let label = document.getElementById("resultsLabel");
+    let value1 = document.getElementById("num1");
+    let value2 = document.getElementById("num2");
+    let value3 = document.getElementById("num3");
+    let equation = document.getElementById("equation");
+    let result = document.getElementById("results");
+
+    let box1 = document.getElementById("number1").value;
+    let box2 = document.getElementById("number2").value;
+    let box3 = document.getElementById("number3").value;
+
+    value1.innerHTML = "Value 1: " + box1;
+    value2.innerHTML = "Value 2: " + box2;
+    value3.innerHTML = "Value 3: " + box3;
+    equation.innerHTML = "Equation is: " + getEquation(areaCalculate);
+    result.innerHTML = "Answer: " + value;
+
+
+
+
+    label.style.display = "block";
+    value1.style.display = "block";
+    value2.style.display = "block";
+    value3.style.display = "block";
+    equation.style.display = "block";
+    result.style.display = "block";
+
+
+  }
 
     
   </script>
 
   <style>
+    h1 {
+      text-align: center;
+    }
 
+    #resultsLabel {
+      display: none;
+    }
+
+    #num1 {
+      display: none;
+    }
+
+    #num2 {
+      display: none;
+    }
+
+    #num3 {
+      display: none;
+    }
+
+    #equation {
+      display: none;
+    }
+
+    #results {
+      display: none;
+    }
 
     
   </style>
 
 
   <body>
+    <body onload="checkCookie()">
+    
+
+
+    <div class="areaSelection">
+      <label for="areaDropdown">Area Calculate Type:</label> 
+      <select id="areaDropdown"> 
+          <option id="circle">Circle</option> 
+          <option id="triangle">Triangle</option> 
+          <option id="trap">Trapizoid</option> 
+          <option id="square">Square</option>
+          <option id="rectangle">Rectangle</option> 
+      </select>
+      <button onclick="switchBoxes()">Change</button>
+      <hr>
+    </div>
+
+    <div class="valueRequire">
+      <input id="number1" type="number" placeholder="Number 1">
+      <br>
+      <input id="number2" type="number" placeholder="Number 2">
+      <br>
+      <input id="number3" type="number" placeholder="Number 3">
+      <br>
+      <input type="checkbox" id="round">Round</input>
+    </div>
+
+    <div class="submitButton">
+      <button onclick="calculateAnswer()" type="button" id="calculate">Calculate!</button>
+      <hr>
+    </div>
+
+
+    <div class="result">
+      <h2 id="resultsLabel">Results</h2>
+      <p id="num1">Value 1</p>
+      <p id="num2">Value 2</p>
+      <p id="num3">Value 3</p>
+      <p id="equation">Equation</p>
+      <p id="results">Results</p>
+    </div>
+  
+
 
     
   </body>
