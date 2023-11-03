@@ -29,8 +29,14 @@
     let box1 = document.getElementById("number1");
     let box2 = document.getElementById("number2");
     let box3 = document.getElementById("number3");
-
-    if (areaCalculateType == "Circle") {
+    if (areaCalculateType == "-Select One-") {
+      box1.style.display = "block";
+      box2.style.display = "block";
+      box3.style.display = "block";
+      box1.placeholder = "Number 1";
+      box2.placeholder = "Number 2";
+      box3.placeholder = "Number 3";
+    } else if (areaCalculateType == "Circle") {
       box1.style.display = "block";
       box2.style.display = "none";
       box3.style.display = "none";
@@ -71,21 +77,20 @@
 
     let areaToCalculate = document.getElementById("areaDropdown").value;
 
-    let value1 = document.getElementById("number1").value;
-    let value2 = document.getElementById("number2").value;
-    let value3 = document.getElementById("number3").value;
+    let value1 = parseInt(document.getElementById("number1").value);
+    let value2 = parseInt(document.getElementById("number2").value);
+    let value3 = parseInt(document.getElementById("number3").value);
 
     let round = document.getElementById("round").checked;
 
-
-
-    if (areaToCalculate == "Circle") {
+    if (areaToCalculate == "-Select One-") {
+      var answer = "Select Something!"
+    } else if (areaToCalculate == "Circle") {
       var answer = value1*value1*3.14;
     } else if(areaToCalculate == "Triangle") {
       var answer = (value1*value2)/2;
     } else if(areaToCalculate == "Trapizoid") {
-      alert()
-      var answer = value1+value2;
+      var answer = (value1+value2);
       answer = answer/2;
       answer = answer*value3;
     } else if(areaToCalculate == "Square") {
@@ -104,7 +109,9 @@
   }
 
   function getEquation(shape) {
-    if (shape == "Circle") {
+    if (shape == "-Select One-") {
+      return "Select Valid";
+    } else if (shape == "Circle") {
       return "r*r*3.14";
     } else if(shape == "Triangle") {
       return "(l*h)/2";
@@ -189,20 +196,20 @@
 
 
   <body>
-    <body onload="checkCookie()">
     
-
+    
+    <body onload="checkCookie()">
 
     <div class="areaSelection">
       <label for="areaDropdown">Area Calculate Type:</label> 
-      <select id="areaDropdown"> 
+      <select id="areaDropdown" onchange="switchBoxes()"> 
+          <option>-Select One-</option>
           <option id="circle">Circle</option> 
           <option id="triangle">Triangle</option> 
           <option id="trap">Trapizoid</option> 
           <option id="square">Square</option>
           <option id="rectangle">Rectangle</option> 
       </select>
-      <button onclick="switchBoxes()">Change</button>
       <hr>
     </div>
 
