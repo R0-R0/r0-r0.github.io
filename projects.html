@@ -9,13 +9,43 @@
 h1 {
     text-align: center;
 }
+body {
+  font-family: Sans-Serif;
+}
 .popcat {
     cursor: grab;
 }
+#areaCalc {
+    width: 200px;
+    height: 200px;
+    border: 5px solid #87CEEB;
+    color: white;
+    font-size: 25px;
+    background: url('./galaxy.jpg') no-repeat;
+    background-size: 400px;
+    transition-duration: 1s;
+    border-radius: 30px;
+}
+#areaCalc:hover {
+    width: 220px;
+    height: 220px;
+    border: 5px solid #863b87;
+}
+#darkMode {
+        position: fixed;
+        height: 50px;
+        width: 50px;
+        top: 0px;
+        left: 0px;
+        border-radius: 50px;
+        background-color: white;
+    }
 </style>
 
 
 <script>
+var currentMode = "light";
+
 function checkCookie() {
     let cookie = sessionStorage.getItem("cookie");
     if (cookie && cookie.includes("ballsack")) {
@@ -29,25 +59,58 @@ function checkCookie() {
     }
 }
 
+function darkmode() {
+    if (currentMode == "light") {
+        document.body.style.backgroundColor = "black";
+        document.getElementById("title").style.color = "white";
+        document.getElementById("popcatHeading").style.color = "white";
+        document.getElementById("toolsHeading").style.color = "white";
+        currentMode = "dark";
+    } else {
+        document.body.style.backgroundColor = "white";
+        document.getElementById("title").style.color = "black";
+        document.getElementById("popcatHeading").style.color = "black";
+        document.getElementById("toolsHeading").style.color = "black";
+        currentMode = "light";
+    }
+}
+
 </script>
 
+
+
 <head>
-    <h1>ballz</h1>
+    <h1 id="title"><marquee>Tools and Projects</marquee></h1>
     <br>
     <hr>
     <br>
 </head>
 
-<body onload="checkCookie()">
+
 <body>
+
+    <body onload="checkCookie()">
+
+    <button id="darkMode" onClick="darkmode()"><img src="../images/moon.png" alt="moon" width="40px"></button>
+
+
+
     <div class="popcat">
-        <center><h2>PET THE CAT FIRST BEFORE ADVENTURING ON!</h2></center>
+        <center><h2 id="popcatHeading">PET THE CAT FIRST BEFORE ADVENTURING ON!</h2></center>
         <center><img id="popcat" src="./images/popcat.jpg" width=700 alt="PopCat"></center>
     </div>
 
     <br>
     <hr>
     <br>
+
+    <div class="tools">
+        <h1 id="toolsHeading">Tools</h1>
+        <br>
+        <div class="area_calculator">
+            <a href="../projects/area-calculator.html"><button id="areaCalc">Area Calculator</button></a>
+        </div>
+    <div>
 
 </body>
 
