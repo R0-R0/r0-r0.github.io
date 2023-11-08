@@ -1,8 +1,8 @@
 <DOCTYPE html>
 
 <html>
-  <h1>Read Me</h1>
+  <h1>Hullo!</h1>
   
-  <p>This is just a fun little testing page for when I'm bored :)</p>
+  <p>This is a fun little testing site where I put some <b>tools</b>, <b>projects</b>, and <b>other</b> things. </p>
 
 </html>
